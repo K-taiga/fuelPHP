@@ -6,7 +6,7 @@ services:
       context: ./docker/php/
       dockerfile: Dockerfile
     volumes:
-      - .:/app
+      - ./sample:/var/www/html
       - ./docker/php/php.ini:/etc/php.ini
       - ./docker/httpd/httpd.conf:/etc/httpd/conf/httpd.conf
       - ./docker/mysql/volumes:/var/lib/mysql

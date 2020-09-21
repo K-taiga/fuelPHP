@@ -22,8 +22,9 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
     curl https://get.fuelphp.com/oil | sh
 
-RUN mkdir /app
-WORKDIR /app
+# RUN mkdir /var/www/html
+WORKDIR /var/www/html
+
 
 EXPOSE 80
 
