@@ -9,15 +9,20 @@ class Controller_Sample extends Controller
         // print($user->get_name());
 
         // newじゃなくforgeで割り当てる
-        $item = Model_Item::forge();
+        // $item = Model_Item::forge();
+        // $data = array();
+        // $data['item_name'] = 'いちご';
+        // $data['price'] = '80';
+
+        // $item->set($data);
+        // $item->save();
+
+        // print('saved!');
+
         $data = array();
-        $data['item_name'] = 'いちご';
-        $data['price'] = '80';
+        $data['raws'] = Model_Item::find_all();
 
-        $item->set($data);
-        $item->save();
-
-        print('saved!');
+        return View::forge('shop/index',$data);
     }
 
     public function action_calc($a, $b)
