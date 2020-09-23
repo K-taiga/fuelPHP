@@ -24,9 +24,17 @@ class Controller_Sample extends Controller
 
         // return View::forge('shop/index',$data);
 
-        DB::query('INSERT INTO items SET item_name="すいか", price=80')->execute();
+        // DB::query('INSERT INTO items SET item_name="すいか", price=80')->execute();
 
-        print('Execute!');
+        // print('Execute!');
+
+        // $data = array();
+        // $data['name'] = 'かとう';
+        // return View::forge('sample/index', $data);
+
+        $view = View::forge('sample/index');
+        $view->set('name', 'かとう');
+        return $view;
     }
 
     public function action_calc($a, $b)
