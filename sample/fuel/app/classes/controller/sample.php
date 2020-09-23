@@ -32,8 +32,21 @@ class Controller_Sample extends Controller
         // $data['name'] = 'かとう';
         // return View::forge('sample/index', $data);
 
+        // $view = View::forge('sample/index');
+        // $view->set('name', 'かとう');
+        // return $view;
+
+        // $data = array();
+        // $data['html'] = '<p>段落のタグ<strong>強調</strong></p>';
+
+        // // サニタイズでhtmlじゃなく文字列として渡っちゃうのをfalseで回避
+        // return View::forge('sample/index', $data, false);
+
         $view = View::forge('sample/index');
-        $view->set('name', 'かとう');
+        // 個別にサニタイズを回避
+        $view->set('html', '<p>段落</p>', false);
+        $view->set('danger', '<script></script>');
+
         return $view;
     }
 

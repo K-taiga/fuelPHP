@@ -11,10 +11,13 @@
       </div>
 
       <div id="content">
-      <?php if (isset($name)): ?>
+      <!-- <?php if (isset($name)): ?>
       <p>あなたの名前は「<?php print($name);?>」はですね</p>
       </div>
-      <?php endif;?>
+      <?php endif;?> -->
+
+      <p><?php print($html);?></p>
+      <p><?php print($danger);?></p>
     </div>
 
     <div id="foot"></div>
