@@ -12,22 +12,11 @@
       </div>
 
       <div id="content">
-        <form action="/shop/save" method="post">
-          <table>
-            <tr>
-              <th>商品名</th>
-              <td><input type="text" name="item_name" size="35" /></td>
-            </tr>
-            <tr>
-              <th>値段</th>
-              <td><input type="text" name="price" size="10" /></td>
-            </tr>
-            <tr>
-              <th></th>
-              <td><input type="submit" value="登録する" /></td>
-            </tr>
-          </table>
-        </form>
+        <ul>
+          <?php foreach ($rows as $r): ?>
+            <li><?php print($r['item_name']);?>/<?php print($r['price']);?></li>
+          <?php endforeach;?>
+        </ul>
       </div>
     </div>
 
