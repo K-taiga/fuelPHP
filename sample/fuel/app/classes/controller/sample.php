@@ -19,10 +19,14 @@ class Controller_Sample extends Controller
 
         // print('saved!');
 
-        $data = array();
-        $data['raws'] = Model_Item::find_all();
+        // $data = array();
+        // $data['raws'] = Model_Item::find_all();
 
-        return View::forge('shop/index',$data);
+        // return View::forge('shop/index',$data);
+
+        DB::query('INSERT INTO items SET item_name="すいか", price=80')->execute();
+
+        print('Execute!');
     }
 
     public function action_calc($a, $b)
@@ -31,6 +35,5 @@ class Controller_Sample extends Controller
         $answer = $a * $b;
         print($answer);
     }
-
 
 }
