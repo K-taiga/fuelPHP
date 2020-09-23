@@ -44,4 +44,9 @@ class Controller_Sample extends Controller
         print($answer);
     }
 
+    public function action_save()
+    {
+        print('save');
+    }
+
 }
