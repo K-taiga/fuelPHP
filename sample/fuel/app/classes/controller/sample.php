@@ -1,6 +1,6 @@
 <?php
-
-class Controller_Sample extends Controller
+// view直下のtemplateをデフォルトで読み込むクラス
+class Controller_Sample extends Controller_Template
 {
     public function action_index()
     {
@@ -42,12 +42,17 @@ class Controller_Sample extends Controller
         // // サニタイズでhtmlじゃなく文字列として渡っちゃうのをfalseで回避
         // return View::forge('sample/index', $data, false);
 
-        $view = View::forge('sample/index');
-        // 個別にサニタイズを回避
-        $view->set('html', '<p>段落</p>', false);
-        $view->set('danger', '<script></script>');
+        // $view = View::forge('sample/index');
+        // // 個別にサニタイズを回避
+        // $view->set('html', '<p>段落</p>', false);
+        // $view->set('danger', '<script></script>');
 
-        return $view;
+        // return $view;
+
+        $this->template->title = 'お問い合わせ';
+        $data = array();
+        $data['myname'] = '加藤';
+        $this->template->content = View::forge('sample/index', $data);
     }
 
     public function action_calc($a, $b)
@@ -60,6 +65,18 @@ class Controller_Sample extends Controller
     public function action_save()
     {
         print('save');
+    }
+
+    public function action_check()
+    {
+        $this->template->title = 'お問い合わせ：確認';
+        $this->template->content = View::forge('sample/check');
+    }
+
+    public function action_thanks()
+    {
+        $this->template->title = 'お問い合わせ：完了';
+        $this->template->content = View::forge('sample/thanks');
     }
 
 }
