@@ -35,6 +35,8 @@
     <th></th>
     <td>
       <?php print(Form::submit('submit', '登録する'));?>
+      <!-- hiddernのnameがconfigのcsrf_token_keyの値になる -->
+      <?php print(Form::hidden(Config::get('security.csrf_token_key'), Security::fetch_token()));?>
     </td>
   </tr>
 </table>

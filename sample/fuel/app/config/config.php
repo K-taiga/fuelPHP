@@ -114,7 +114,7 @@ return array(
      */
     'security' => array(
         // 'csrf_autoload'    => false,
-        // 'csrf_token_key'   => 'fuel_csrf_token',
+        'csrf_token_key' => 'sec_token',
         // 'csrf_expiration'  => 0,
 
         /**
