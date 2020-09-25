@@ -12,6 +12,9 @@ class Controller_Contact extends Controller_Template
             ->add_rule('valid_email');
         if (Input::post('submit')) {
             if ($val->run()) {
+                Session::set_flash('myname', Input::post('myname'));
+                Session::set_flash('email', Input::post('email'));
+                Session::set_flash('gender', Input::post('gender'));
                 Response::redirect('contact/check');
             }
         }
@@ -23,12 +26,15 @@ class Controller_Contact extends Controller_Template
 
     public function action_check()
     {
+        if (Session::get_flash('myname') == '' || Session::get_flash('email') == '') {
+            Response::redirect('contact/index');
+        }
 
         $this->template->title = 'お問い合わせの確認';
         $data = array();
-        $data['myname'] = Input::post('myname');
-        $data['email'] = Input::post('email');
-        $data['gender'] = Input::post('gender');
+        $data['myname'] = Session::get_flash('myname');
+        $data['email'] = Session::get_flash('email');
+        $data['gender'] = Session::get_flash('gender');
         $this->template->content = View::forge('contact/check', $data);
     }
 }
